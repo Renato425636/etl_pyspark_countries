@@ -35,7 +35,7 @@ logger = setup_logging()
 
 
 def inicializar_spark() -> SparkSession:
-    """Inicializa e retorna uma SparkSession."""
+    
     try:
         findspark.init()
         spark = SparkSession.builder \
@@ -53,10 +53,7 @@ def inicializar_spark() -> SparkSession:
 
 
 def extrair_dados_api(url: str, output_path: str):
-    """
-    Busca dados de uma API e salva o conteúdo JSON em um arquivo.
-    Adicionado tratamento de erros de conexão e status HTTP.
-    """
+
     try:
         logger.info(f"Iniciando extração da API: {url}")
         response = requests.get(url, timeout=30)
@@ -82,10 +79,7 @@ def extrair_dados_api(url: str, output_path: str):
         raise
 
 def validar_schema_bruto(df: DataFrame):
-    """
-    Valida se as colunas e estruturas essenciais existem no DataFrame bruto.
-    O pipeline falhará rapidamente se o schema de origem mudar.
-    """
+
     logger.info("Iniciando validação de schema dos dados brutos.")
     required_fields = {
         "name": StructType([StructField("common", StringType(), True), StructField("official", StringType(), True)]),
@@ -111,10 +105,7 @@ def validar_schema_bruto(df: DataFrame):
 
 
 def transformar_dados_paises(spark: SparkSession, input_path: str) -> DataFrame:
-    """
-    Carrega dados JSON brutos e os transforma em um formato tabular e limpo.
-    Usa 'explode_outer' para tratamento robusto de dados ausentes em mapas/arrays.
-    """
+
     try:
         logger.info("Iniciando a etapa de transformação.")
         df_raw = spark.read.option("multiLine", "True").json(input_path)
@@ -153,9 +144,7 @@ def transformar_dados_paises(spark: SparkSession, input_path: str) -> DataFrame:
         raise
 
 def carregar_dados_parquet(df: DataFrame, output_path: str):
-    """
-    Salva um DataFrame em formato Parquet, que é otimizado para análise.
-    """
+
     try:
         logger.info(f"Iniciando carregamento para o formato Parquet em: {output_path}")
         df.write.mode("overwrite").parquet(output_path)
