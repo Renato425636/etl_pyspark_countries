@@ -1,0 +1,15 @@
+pipeline_name: "countries_etl"
+log_level: "INFO"
+
+api:
+  url: "https://restcountries.com/v3.1/all"
+  timeout: 30
+
+spark:
+  app_name: "PipelineJSONPaises"
+  master: "local[*]"
+  driver_memory: "2g"
+
+data:
+  raw_data_path: "data/raw/paises.json"
+  processed_data_path: "data/processed/paises.parquet"

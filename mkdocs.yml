@@ -1,0 +1,31 @@
+site_name: ETL PySpark Countries
+site_description: Pipeline ETL com PySpark para dados JSON da API REST Countries
+site_url: https://renato425636.github.io/etl_pyspark_countries/
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: teal
+      accent: teal
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - content.code.copy
+
+markdown_extensions:
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight
+  - admonition
+  - toc:
+      permalink: true
+
+nav:
+  - Início: index.md
+  - Setup: setup.md
+  - Arquitetura: architecture.md
+  - Pipelines: pipelines.md

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://renato425636.github.io/etl_pyspark_countries/</loc>
+         <lastmod>2026-08-10</lastmod>
+    </url>
+    <url>
+         <loc>https://renato425636.github.io/etl_pyspark_countries/architecture/</loc>
+         <lastmod>2026-08-10</lastmod>
+    </url>
+    <url>
+         <loc>https://renato425636.github.io/etl_pyspark_countries/pipelines/</loc>
+         <lastmod>2026-08-10</lastmod>
+    </url>
+    <url>
+         <loc>https://renato425636.github.io/etl_pyspark_countries/setup/</loc>
+         <lastmod>2026-08-10</lastmod>
+    </url>
+</urlset>
